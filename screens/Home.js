@@ -22,13 +22,12 @@ const Home=()=>{
       },
   };
    return  fetch(YELP_URL,config)
-          .then((res)=>res.json()).then((json)=>setRestaurentData(json.businesses.filter(item=>item.transactions.includes(activtyTab))))
+   .then((res)=>res.json()).then((json)=>setRestaurentData(json.businesses.filter(item=>item.transactions.includes(activtyTab))))
  
   }
   useEffect(() => {
      fetchRestaturentData()
   }, [searhTerm,activtyTab])
-
     return(   
           <SafeAreaView style={{backgroundColor:'#eee',flex:1}}>
               <View style={{backgroundColor:'white',padding:15}}>

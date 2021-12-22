@@ -1,20 +1,20 @@
 import React from 'react'
 import {Text,View,Image} from 'react-native'
 
-const About=()=>{
+const About=({resturant:{image_url,name,rating}})=>{
     return(
         <View style={{marginBottom:10}}>
-           <AboutImageSection/>      
-           <AboutTextSection/>
+           <AboutImageSection image_url={image_url} />      
+           <AboutTextSection name={name} rating={rating}/>
         </View>
     )
 
 }
-const AboutImageSection=()=>{
+const AboutImageSection=({image_url})=>{
     return(
         <View>
             <Image 
-             source={{uri:'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg'}}
+             source={{uri:image_url}}
              style={{width:'100%',height:200}}
             />
           
@@ -22,11 +22,11 @@ const AboutImageSection=()=>{
     )
 }
 
-const AboutTextSection=()=>{
-    const desc='Thai.Comfort Food .$$. 4 stars (2912+) '
+const AboutTextSection=({name,rating})=>{
+    const desc=`Thai.Comfort Food .$$. ${rating} stars (2912+) `
     return(
         <View style={{paddingHorizontal:15,justifyContent:'center'}}>
-            <Text style={{fontSize:25,fontWeight:'bold'}}>FarmHouse Kitchen Thai Cuisine </Text>
+            <Text style={{fontSize:25,fontWeight:'bold'}}>{name} </Text>
             <Text style={{fontSize:16}}>{desc}</Text>
         </View>
     )

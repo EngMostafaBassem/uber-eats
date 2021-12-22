@@ -2,9 +2,11 @@ import React from 'react'
 import {Image,TouchableOpacity,View,Text} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Rating } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 const RestaurentItemRow=({restaurant:{name,image_url,rating}})=>{
+    const navigation = useNavigation()
     return(
-        <TouchableOpacity> 
+        <TouchableOpacity onPress={()=>navigation.navigate('RestaurantDetails',{name,image_url,rating})}> 
           <View style={{backgroundColor:'white',padding:15,justifyContent:'center'}}>
              <CardImage image_url={image_url}/>
              <CardText  name={name} rating={rating}/>    
